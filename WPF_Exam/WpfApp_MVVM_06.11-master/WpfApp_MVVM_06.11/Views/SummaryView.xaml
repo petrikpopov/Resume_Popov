@@ -1,0 +1,152 @@
+﻿<Window x:Class="WpfApp_MVVM_06._11.Views.SummaryView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp_MVVM_06._11.Views"
+        mc:Ignorable="d"
+        Title="Резюме" Width="850" MinWidth="850">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FFDDCBBF" Offset="0.5"/>
+            <GradientStop Color="#FFCEA78E" Offset="0.75"/>
+            <GradientStop Offset="0.25" Color="#FFCEA78E"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <ScrollViewer HorizontalAlignment="Center" VerticalAlignment="Center" VerticalScrollBarVisibility="Auto">
+        <Border Margin="10" BorderBrush="#FFD29B78" BorderThickness="4,4,4,4" CornerRadius="2">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <!--<ColumnDefinition Width="250"/>-->
+                </Grid.ColumnDefinitions>
+
+                <!--<StackPanel Grid.Column="1" Margin="30 20">
+                    <DockPanel>
+                        <Border CornerRadius="7" Height="297" Margin="5,1,5,0" BorderBrush="White" BorderThickness="2" UseLayoutRounding="True" HorizontalAlignment="Center" VerticalAlignment="Center" Width="230">
+                            <Button Background="#FFCEA78E" Margin="3" Height="285" Width="226" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding LoadPhotoCommand}" FontFamily="Segoe UI Light">
+                                <Image Source="{Binding YourImageSourceProperty}" Stretch="UniformToFill" Width="226" Height="285"/>
+                            </Button>
+                        </Border>
+                    </DockPanel>
+                </StackPanel>-->
+                <StackPanel Margin="30 10">
+                    <WrapPanel  Margin="2,0,0,0" >
+                        <Label Content="Вакансия:" FontSize="20" FontFamily="Segoe UI Semibold"/>
+                        <Border CornerRadius="7" BorderBrush="White" BorderThickness="2" VerticalAlignment="Center" UseLayoutRounding="True">
+                            <TextBox BorderThickness="0" Text="{Binding SummaryInfo_Vacancy}" Background="Transparent" Height="25" Width="337" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,-1"/>
+                        </Border>
+                    </WrapPanel>
+                    <WrapPanel Margin="2,10,0,0">
+                        <Label Content="ФИО:" FontSize="20" FontFamily="Segoe UI Semibold"/>
+                        <Border CornerRadius="7" BorderBrush="White" BorderThickness="2" VerticalAlignment="Center" UseLayoutRounding="True">
+                            <TextBox BorderThickness="0" Text="{Binding SummaryInfo_FullName}" Background="Transparent" Height="25" Width="380" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,-1"/>
+                        </Border>
+                    </WrapPanel>
+                    <WrapPanel Margin="2,10,0,0">
+                        <Label Content="Возраст:" FontFamily="Segoe UI Semibold" FontSize="20"/>
+                        <Border CornerRadius="7" BorderBrush="White" BorderThickness="2" VerticalAlignment="Center" UseLayoutRounding="True">
+                            <TextBox BorderThickness="0" Text="{Binding SummaryInfo_Age}" Background="Transparent" Height="25" Width="355" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,-1"/>
+                        </Border>
+                    </WrapPanel>
+                    <WrapPanel Margin="2,10,0,0">
+                        <Label Content="Cемейное положение:" FontFamily="Segoe UI Semibold" FontSize="20"/>
+                        <Border CornerRadius="7" BorderBrush="White" BorderThickness="2" VerticalAlignment="Center" UseLayoutRounding="True">
+                            <TextBox BorderThickness="0" Text="{Binding SummaryInfo_MaritalStatus}" Background="Transparent" Height="25" Width="221" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,-1"/>
+                        </Border>
+                    </WrapPanel>
+                    <WrapPanel Margin="2,10,0,0">
+                        <Label Content="Адрес:" FontFamily="Segoe UI Semibold" FontSize="20"/>
+                        <Border CornerRadius="7" BorderBrush="White" BorderThickness="2" VerticalAlignment="Center" UseLayoutRounding="True">
+                            <TextBox BorderThickness="0" Text="{Binding SummaryInfo_Address}" Background="Transparent" Height="25" Width="372" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,-1"/>
+                        </Border>
+                    </WrapPanel>
+                    <WrapPanel Margin="2,10,0,0">
+                        <Label Content="Email:" FontFamily="Segoe UI Semibold" FontSize="20"/>
+                        <Border CornerRadius="7" BorderBrush="White" BorderThickness="2" VerticalAlignment="Center" UseLayoutRounding="True">
+                            <TextBox BorderThickness="0" Text="{Binding SummaryInfo_Email}" Background="Transparent" Height="25" Width="383" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,-1"/>
+                        </Border>
+                    </WrapPanel>
+                    <WrapPanel Margin="2,10,0,0">
+                        <Label Content="Контакты:" FontFamily="Segoe UI Semibold" FontSize="20"/>
+                        <Border CornerRadius="7" BorderBrush="White" BorderThickness="2" VerticalAlignment="Center" UseLayoutRounding="True">
+                            <TextBox BorderThickness="0" Text="{Binding SummaryInfo_Contacts}" Background="Transparent" Height="25" Width="343" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,-1"/>
+                        </Border>
+                    </WrapPanel>
+                    <StackPanel Margin="0, 10, 0 ,0">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="123*" />
+                                <ColumnDefinition Width="194*" />
+                                <ColumnDefinition Width="136*" />
+                            </Grid.ColumnDefinitions>
+                            <DockPanel Height="auto"  Width="107" HorizontalAlignment="Center" VerticalAlignment="Top">
+                                <GroupBox Header="Знание языков" FontSize="13">
+                                    <StackPanel Margin="4" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <TextBlock TextWrapping="Wrap" FontSize="12" Margin="0,7,0,0" Text="{Binding SummaryInfo_Languages}"/>
+                                    </StackPanel>
+                                </GroupBox>
+                            </DockPanel>
+                            <DockPanel Margin="-50, 0 ,0 ,0" Width="auto"  Height="auto" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top">
+                                <GroupBox Header="Языки програм-ния" FontSize="13">
+                                    <StackPanel Margin="4" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <TextBlock TextWrapping="Wrap" FontSize="12" Margin="0,7,0,0" Text="{Binding SummaryInfo_Languages_Programmer}"/>
+                                    </StackPanel>
+                                </GroupBox>
+                            </DockPanel>
+                            <DockPanel Margin="-45,0,0,0" Width="180"  Height="auto" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top">
+                                <GroupBox Header="Доп навыки" FontSize="13">
+                                    <StackPanel Margin="4" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <TextBlock TextWrapping="Wrap" FontSize="12" Margin="0,7,0,0" Text="{Binding SummaryInfo_Additional_Skills}"/>
+                                    </StackPanel>
+                                </GroupBox>
+                            </DockPanel>
+                        </Grid>
+
+                    </StackPanel>
+                    <StackPanel Margin="0, 10, 0 ,0">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="146*"/>
+                                <ColumnDefinition Width="142*"/>
+                                <ColumnDefinition Width="165*"/>
+                            </Grid.ColumnDefinitions>
+                            <DockPanel Grid.Row="0" Grid.ColumnSpan="2" Width="276" Height="auto" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Top">
+                                <GroupBox Header="Профессиональные достижения и награды" FontSize="13">
+                                    <StackPanel Margin="4" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <TextBlock TextWrapping="Wrap" FontSize="13" Margin="0,7,0,0" Text="{Binding SummaryInfo_Professional_achievements_and_awards}"/>
+                                    </StackPanel>
+                                </GroupBox>
+                            </DockPanel>
+                            <DockPanel Width="auto" Grid.Row="0" Height="auto" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Top">
+                                <GroupBox Header="Опыт работы" FontSize="13">
+                                    <StackPanel Margin="4" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <TextBlock TextWrapping="Wrap" FontSize="13" Margin="0,7,0,0" Text="{Binding SummaryInfo_Work_experience}"/>
+                                    </StackPanel>
+                                </GroupBox>
+                            </DockPanel>
+                        </Grid>
+                    </StackPanel>
+                    <StackPanel Margin="0, 10, 0 ,0">
+                        <StackPanel  Height="100" Width="450" HorizontalAlignment="Left" VerticalAlignment="Center">
+                            <GroupBox Header="Дополнительная информация" Height="99">
+                                <ScrollViewer VerticalScrollBarVisibility="Auto" Height="90" Width="450" Margin="5">
+                                    <TextBox x:Name="additionalInfoTextBox" Background="#FFE8E8E8" Text="{Binding SummaryInfo_Any_Words}" TextWrapping="Wrap" IsReadOnly="True" AcceptsReturn="True" Width="450" HorizontalAlignment="Left" Height="150" BorderBrush="White"/>
+                                </ScrollViewer>
+                            </GroupBox>
+                        </StackPanel>
+                    </StackPanel>
+
+                </StackPanel>
+            </Grid>
+        </Border>
+    </ScrollViewer>
+
+</Window>

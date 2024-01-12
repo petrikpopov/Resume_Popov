@@ -1,0 +1,287 @@
+﻿<Window x:Class="WpfApp_MVVM_06._11.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp_MVVM_06._11"
+        mc:Ignorable="d"
+           Title="Резюме" Height="880" Width="786" MinWidth="786" >
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FFDDCBBF" Offset="0.5"/>
+            <GradientStop Color="#FFCEA78E" Offset="0.75"/>
+            <GradientStop Offset="0.25" Color="#FFCEA78E"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    
+     <ScrollViewer HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Border Padding="10" Height="820" Margin="10" BorderBrush="#FFD29B78" BorderThickness="4,4,4,4" CornerRadius="2">
+            <StackPanel>
+            <Grid>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="250"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="1" Height="954">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="299"/>
+                    <RowDefinition Height="335"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <DockPanel>
+                    <Border CornerRadius="7" Height="297" Margin="5,1,5,0" BorderBrush="White" BorderThickness="2" UseLayoutRounding="True" HorizontalAlignment="Center" VerticalAlignment="Center" Width="230">
+                        <Button Background="#FFCEA78E" Margin="3" Height="285" Width="226" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding LoadPhotoCommand}" FontFamily="Segoe UI Light">
+                            <Image Source="{Binding YourImageSourceProperty}" Stretch="UniformToFill" Width="226" Height="285"/>
+                        </Button>
+                    </Border>
+                </DockPanel>
+                
+                <DockPanel Margin="40,-65,0,0" Grid.Row="1" Width="200"  HorizontalAlignment="Left" VerticalAlignment="Center">
+                    <GroupBox Header="Дополнительные навыки">
+                        <StackPanel Margin="4">
+                            <CheckBox Content="Тестирование" IsChecked="{Binding Testing}" Margin="5"/>
+                            <CheckBox Content="Облачные сервисы" IsChecked="{Binding CloudServices}" Margin="5"/>
+                            <CheckBox Content="Мобильная разработка" IsChecked="{Binding MobileDevelopment}" Margin="5"/>
+                            <CheckBox Content="Архитектурные паттерны" IsChecked="{Binding ArchitecturalPatterns}" Margin="5"/>
+                            <CheckBox Content="Системы контроля версий" IsChecked="{Binding VersionControlSystems}" Margin="5"/>
+                            <CheckBox Content="Базы данных" IsChecked="{Binding Databases}" Margin="5"/>
+                            <CheckBox Content="Фреймворки для Web" IsChecked="{Binding WebFrameworks}" Margin="5"/>
+                        </StackPanel>
+                    </GroupBox>
+                </DockPanel>
+                <StackPanel Margin="40,-85,10,0" Grid.Row="3" Height="160" Width="200" HorizontalAlignment="Left" VerticalAlignment="Center">
+                    <GroupBox Header="Дополнительная информация" Height="155">
+                        <ScrollViewer VerticalScrollBarVisibility="Auto" Height="150" Width="170" Margin="5">
+                            <TextBox x:Name="additionalInfoTextBox" Text="{Binding AdditionalInformation}" TextWrapping="Wrap" AcceptsReturn="True" Width="160"/>
+                        </ScrollViewer>
+                    </GroupBox>
+                </StackPanel>
+                <StackPanel Grid.Row="10" Grid.Column="0">
+                    <Button Height="45" Background="#FFEACDAA" Content="Очистить" FontSize="16" BorderBrush="#FFD47345" Width="200" Margin="40,38,10,10" HorizontalAlignment="Left" VerticalAlignment="Center" Command="{Binding Clearsummary}">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                </StackPanel>
+
+            </Grid>
+
+            <Grid Grid.Column="0" Margin="0,5,0,0">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+                <WrapPanel Grid.Row="1" Margin="2,0,0,0" >
+                    <Label Content="Вакансия:" FontSize="20" FontFamily="Segoe UI Semibold"/>
+                    <Border CornerRadius="7" BorderBrush="White" BorderThickness="2" VerticalAlignment="Center" UseLayoutRounding="True">
+                        <TextBox BorderThickness="0" Text="{Binding Vacancy}" Background="Transparent" Height="25" Width="337" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,-1"/>
+                    </Border>
+                </WrapPanel>
+                <WrapPanel Grid.Row="2" Margin="2,10,0,0">
+                    <Label Content="ФИО:" FontSize="20" FontFamily="Segoe UI Semibold"/>
+                    <Border CornerRadius="7" BorderBrush="White" BorderThickness="2" VerticalAlignment="Center" UseLayoutRounding="True">
+                        <TextBox BorderThickness="0" Text="{Binding FullName}" Background="Transparent" Height="25" Width="380" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,-1"/>
+                    </Border>
+                </WrapPanel>
+                <WrapPanel Grid.Row="3" Margin="2,10,0,0">
+                    <Label Content="Возраст:" FontFamily="Segoe UI Semibold" FontSize="20"/>
+                    <Border CornerRadius="7" BorderBrush="White" BorderThickness="2" VerticalAlignment="Center" UseLayoutRounding="True">
+                        <TextBox BorderThickness="0" Text="{Binding Age}" Background="Transparent" Height="25" Width="355" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,-1"/>
+                    </Border>
+                </WrapPanel>
+                <WrapPanel Grid.Row="4" Margin="2,10,0,0">
+                    <Label Content="Cемейное положение:" FontFamily="Segoe UI Semibold" FontSize="20"/>
+                    <Border CornerRadius="7" BorderBrush="White" BorderThickness="2" VerticalAlignment="Center" UseLayoutRounding="True">
+                        <TextBox BorderThickness="0" Text="{Binding MaritalStatus}" Background="Transparent" Height="25" Width="221" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,-1"/>
+                    </Border>
+                </WrapPanel>
+                <WrapPanel Grid.Row="5" Margin="2,10,0,0">
+                    <Label Content="Адрес:" FontFamily="Segoe UI Semibold" FontSize="20"/>
+                    <Border CornerRadius="7" BorderBrush="White" BorderThickness="2" VerticalAlignment="Center" UseLayoutRounding="True">
+                        <TextBox BorderThickness="0" Text="{Binding Address}" Background="Transparent" Height="25" Width="372" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,-1"/>
+                    </Border>
+                </WrapPanel>
+                <WrapPanel Grid.Row="6" Margin="2,10,0,0">
+                    <Label Content="Email:" FontFamily="Segoe UI Semibold" FontSize="20"/>
+                    <Border CornerRadius="7" BorderBrush="White" BorderThickness="2" VerticalAlignment="Center" UseLayoutRounding="True">
+                        <TextBox BorderThickness="0" Text="{Binding Email}" Background="Transparent" Height="25" Width="383" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,-1"/>
+                    </Border>
+                </WrapPanel>
+                <WrapPanel Grid.Row="7" Margin="2,10,0,0">
+                    <Label Content="Контакты:" FontFamily="Segoe UI Semibold" FontSize="20"/>
+                    <Border CornerRadius="7" BorderBrush="White" BorderThickness="2" VerticalAlignment="Center" UseLayoutRounding="True">
+                        <TextBox BorderThickness="0" Text="{Binding Contacts}" Background="Transparent" Height="25" Width="343" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,-1"/>
+                    </Border>
+                </WrapPanel>
+
+                <DockPanel Margin="7,10,0,0" Grid.Column="0" Grid.Row="8" Width="200" HorizontalAlignment="Left" VerticalAlignment="Center">
+                    <GroupBox Header="Знание языков">
+                        <StackPanel Margin="4">
+                            <CheckBox Content="Английский" IsChecked="{Binding English}" Margin="5"/>
+                            <CheckBox Content="Армянский" IsChecked="{Binding Armenian}" Margin="5"/>
+                            <CheckBox Content="Немецкий" IsChecked="{Binding German}" Margin="5"/>
+                            <CheckBox Content="Испанский" IsChecked="{Binding Spanish}" Margin="5"/>
+                            <CheckBox Content="Японский" IsChecked="{Binding Japanese}" Margin="5"/>
+                            <CheckBox Content="Арабский" IsChecked="{Binding Arabic}" Margin="5"/>
+                            <CheckBox Content="Шведский" IsChecked="{Binding Swedish}" Margin="5"/>
+                        </StackPanel>
+                    </GroupBox>
+                </DockPanel>
+                <DockPanel Margin="250,10,0,0" Grid.Column="0"  Grid.Row="8" Width="200"  HorizontalAlignment="Left" VerticalAlignment="Center">
+                    <GroupBox Header="Языки программирования">
+                        <StackPanel Margin="4">
+                            <CheckBox Content="Java" IsChecked="{Binding Java}" Margin="5"/>
+                            <CheckBox Content="JavaScript" IsChecked="{Binding JavaScript}" Margin="5"/>
+                            <CheckBox Content="C#" IsChecked="{Binding CSharp}" Margin="5"/>
+                            <CheckBox Content="PHP" IsChecked="{Binding PHP}" Margin="5"/>
+                            <CheckBox Content="Kotlin" IsChecked="{Binding Kotlin}" Margin="5"/>
+                            <CheckBox Content="Swift" IsChecked="{Binding Swift}" Margin="5"/>
+                            <CheckBox Content="Python" IsChecked="{Binding Python}" Margin="5"/>
+                        </StackPanel>
+                    </GroupBox>
+                </DockPanel>
+                <DockPanel Margin="7,10,0,0" Grid.Column="0" Grid.Row="9"  Width="278"  HorizontalAlignment="Left" VerticalAlignment="Center">
+                    <GroupBox Header="Профессиональные достижения и награды">
+                        <StackPanel Margin="4">
+                           <CheckBox Content="Развитие в области технических навыков" IsChecked="{Binding TechnicalSkillsDevelopment}" Margin="5"/>
+                           <CheckBox Content="Управление проектами" IsChecked="{Binding ProjectManagement}" Margin="5"/>
+                           <CheckBox Content="Лидерство и руководство" IsChecked="{Binding Leadership}" Margin="5"/>
+                           <CheckBox Content="Специализация в новой технологии" IsChecked="{Binding NewTechnologySpecialization}" Margin="5"/>
+                           <CheckBox Content="Развитие бизнес-аналитических навыков" IsChecked="{Binding BusinessAnalyticsSkillsDevelopment}" Margin="5"/>
+                        </StackPanel>
+                    </GroupBox>
+                </DockPanel>
+                <DockPanel  Margin="313,10,0,0" Grid.Column="0" Grid.Row="9"  Width="138"  HorizontalAlignment="Left" VerticalAlignment="Center">
+                    <GroupBox Header="Опыт работы">
+                        <StackPanel Margin="4">
+                            <RadioButton Content="Более 5 лет" IsChecked="{Binding MoreThan5YearsExperience}" Margin="5"/>
+                            <RadioButton Content="3-5 лет"  IsChecked="{Binding ThreeToFiveYearsExperience}" Margin="5"/>
+                            <RadioButton Content="1-3 года" IsChecked="{Binding OneToThreeYearsExperience}" Margin="5"/>
+                            <RadioButton Content="Менее 1 года" IsChecked="{Binding LessThanOneYearExperience}" Margin="5"/>
+                            <RadioButton Content="Нет опыта" IsChecked="{Binding NoExperience}" Margin="5"/>
+                        </StackPanel>
+                    </GroupBox>
+                </DockPanel>
+
+                <StackPanel Grid.Row="12" Grid.Column="0">
+                    <Button Height="45"  Background="#FFEACDAA" FontSize="16" BorderBrush="#FFD47345" Width="200" Content="Сохранить" Command="{Binding SaveCommand }" Margin="7,15,0,10" HorizontalAlignment="Left" VerticalAlignment="Center">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                </StackPanel>
+
+                <StackPanel Grid.Row="12" Grid.Column="0">
+                    <Button Height="45" Background="#FFEACDAA" FontSize="16" BorderBrush="#FFD47345" Width="180" Content="Просмотреть список" Command="{Binding ShowInformation}"  Margin="273,15,0,10" HorizontalAlignment="Left" VerticalAlignment="Center">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                </StackPanel>
+
+                <StackPanel Grid.Row="10">
+                    <ComboBox x:Name="Box" ItemsSource="{Binding summaryModels}" SelectedItem="{Binding SelectedSummary}" VerticalAlignment="Center" Margin="2,6,0,0" Width="445" />
+                </StackPanel>
+
+
+            </Grid>
+       
+        </Grid>
+        </StackPanel>
+        </Border>
+    </ScrollViewer>
+    
+    <!--<Grid>
+        <StackPanel>
+            <TextBlock Text="Имя:" Margin="2"/>
+            <TextBox Text="{Binding Name}" Margin="2"/>
+
+            <TextBlock Text="Возраст:" Margin="2"/>
+            <TextBox Text="{Binding Age}" Margin="2"/>
+
+            <TextBlock Text="Электронная почта:" Margin="2"/>
+            <TextBox Text="{Binding Email}" Margin="2"/>
+
+            <TextBlock Text="Телефон:" Margin="2"/>
+            <TextBox Text="{Binding Phone}" Margin="2"/>
+
+            <WrapPanel HorizontalAlignment="Center">
+                <CheckBox IsChecked="{Binding IsEnglish}" Content="Английский" Margin="5"/>
+                <CheckBox IsChecked="{Binding IsSpanish}" Content="Испанский" Margin="5"/>
+                <CheckBox IsChecked="{Binding IsArmenia}" Content="Армейский" Margin="5"/>
+                <CheckBox IsChecked="{Binding IsGerman}" Content="Нимецкий" Margin="5"/>
+            </WrapPanel>
+
+            <TextBlock Text="Образование:" Margin="2"/>
+            <TextBox Text="{Binding Education}" Margin="2"/>
+
+            <TextBlock Text="Опыт работы:" Margin="2"/>
+            <TextBox Text="{Binding Experience}" Margin="2"/>
+
+            <TextBlock Text="Навыки:" Margin="2"/>
+            <TextBox Text="{Binding Skills}" Margin="2"/>
+
+            <TextBlock Text="Выберите резюме" Margin="2"/>
+            <ComboBox x:Name="Box" Margin="2" ItemsSource="{Binding summaryModels}" SelectedItem="{Binding SelectedSummary}"/>
+
+            <StackPanel Margin="5" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="Сохранить" Background="LightBlue" FontSize="15" Foreground="Red" Margin="10" Height="60" Width="120" Command="{Binding SaveCommand}">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="25">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Button Content="Очистить" Background="LightBlue" FontSize="15" Foreground="Red" Margin="10" Height="60" Width="120" Command="{Binding Clearsummary}">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="25">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Button Content="Показать информацию" Margin="10" FontSize="15" Foreground="Red" Background="LightBlue" Height="60" Width="200" Command="{Binding ShowInfo}">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="25">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </StackPanel>
+
+        </StackPanel>
+    </Grid>-->
+</Window>
